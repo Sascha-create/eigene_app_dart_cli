@@ -12,9 +12,10 @@ void main() {
 
   bool isProgrammRunning = true;
   String userInput = "";
-  String userArticle = "kein Beitrag verfasst !";
+  String userArticle = " kein Beitrag verfasst !";
 
   while (isProgrammRunning) {
+    stdout.write("\n");
     print("Willkommen bei Zaunfunk, deinem Kleingarten Netzwerk!");
     stdout.write("\n");
     print("Du hast die Auswahl zwischen :");
@@ -34,6 +35,7 @@ void main() {
       case "b" || "B":
         isProgrammRunning = false;
       case "l" || "L":
+        stdout.write("\n");
         print(
             "Für Login den Nutzernamen eingeben und mit 'Enter' bestätigen !");
         stdout.write("Nutzername : "); // Map mit Nutzername + Passwort
@@ -43,8 +45,12 @@ void main() {
 
       case "f" || "F":
         stdout.write("\n\n");
-        print("$userArticle \n\n");
+        stdout.write("   -------------------------\n\n");
+        print("   $userArticle \n");
+        stdout.write("   -------------------------\n\n");
+
       case "e" || "E":
+        stdout.write("\n");
         print("Beitrag verfassen und mit 'Enter' bestätigen !");
         stdout.write("Beitrag erstellen : ");
         userArticle = stdin.readLineSync()!;
