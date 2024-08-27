@@ -34,11 +34,18 @@ void main() {
       case "b" || "B":
         isProgrammRunning = false;
       case "l" || "L":
+        print(
+            "Für Login den Nutzernamen eingeben und mit 'Enter' bestätigen !");
+        stdout.write("Nutzername : "); // Map mit Nutzername + Passwort
+        String userName = stdin.readLineSync()!;
+        stdout.write("Passwort : ");
+        String userPassword = stdin.readLineSync()!;
+
       case "f" || "F":
-      stdout.write("\n\n");
+        stdout.write("\n\n");
         print("$userArticle \n\n");
       case "e" || "E":
-        print("Beitrag verfassen und mit 'Enter' bestätigen :");
+        print("Beitrag verfassen und mit 'Enter' bestätigen !");
         stdout.write("Beitrag erstellen : ");
         userArticle = stdin.readLineSync()!;
         stdout.write("\n\n");
