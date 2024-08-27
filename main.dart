@@ -12,6 +12,7 @@ void main() {
 
   bool isProgrammRunning = true;
   String userInput = "";
+  String userArticle = "kein Beitrag verfasst !";
 
   while (isProgrammRunning) {
     print("Willkommen bei Zaunfunk, deinem Kleingarten Netzwerk!");
@@ -23,12 +24,25 @@ void main() {
     stdout.write("Beitrag (e)rstellen   ");
     stdout.write("Programm (b)eenden");
     stdout.write("\n\n");
+    stdout.write("mit 'Enter' bestätigen !");
+    stdout.write("\n\n");
+
     stdout.write("Eingabe : ");
     userInput = stdin.readLineSync()!;
 
     switch (userInput) {
       case "b" || "B":
         isProgrammRunning = false;
+      case "l" || "L":
+      case "f" || "F":
+      stdout.write("\n\n");
+        print("$userArticle \n\n");
+      case "e" || "E":
+        print("Beitrag verfassen und mit 'Enter' bestätigen :");
+        stdout.write("Beitrag erstellen : ");
+        userArticle = stdin.readLineSync()!;
+        stdout.write("\n\n");
+        print("$userArticle \n\n");
     }
   }
 }
