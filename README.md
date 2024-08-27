@@ -10,4 +10,4 @@ kann und Infos vom Verein bekommt.
 
 ## Ausführung
 
-main.dart öffnen und auf 'run' klicken, dann sollte das Programm laufen.
+`main.dart` öffnen und auf `run` klicken, dann sollte das Programm laufen.
