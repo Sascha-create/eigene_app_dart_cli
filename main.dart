@@ -1,14 +1,9 @@
 import 'dart:io';
+import 'header_zaunfunk.dart';
 
 void main() {
-  stdout.write("###################\n");
-
-  stdout.write("#");
-  stdout.write(" Z A U N F U N K ");
-  stdout.write("#\n");
-
-  stdout.write("###################\n");
-  stdout.write("\n");
+  
+  header();
 
   bool isProgrammRunning = true;
   String userInput = "";
