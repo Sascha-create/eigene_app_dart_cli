@@ -29,16 +29,16 @@ void main() {
     switch (userInput) {
       case "b" || "B":
         isProgrammRunning = false;
-      case "l" || "L":
+      case "l" || "L":   // Map mit Nutzername + Passwort noch erstellen
         stdout.write("\n");
         print(
             "Für Login den Nutzernamen eingeben und mit 'Enter' bestätigen !");
-        stdout.write("Nutzername : "); // Map mit Nutzername + Passwort
+        stdout.write("Nutzername : "); 
         String userName = stdin.readLineSync()!;
         stdout.write("Passwort : ");
         String userPassword = stdin.readLineSync()!;
 
-      case "f" || "F":
+      case "f" || "F":   // evtl vorhandene Feeds noch erstellen
         stdout.write("\n\n");
         stdout.write("   -------------------------\n\n");
         print("   $userArticle \n");
