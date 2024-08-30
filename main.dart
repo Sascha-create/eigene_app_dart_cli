@@ -1,5 +1,7 @@
 import 'dart:io';
 import 'header_zaunfunk.dart';
+import 'show_feed.dart';
+import 'intro.dart';
 
 void main() {
   bool isProgrammRunning = true;
@@ -8,12 +10,21 @@ void main() {
   String userName = "";
   String userPassword = "";
 
+  List<String> feed = [
+    "Otto : Ich habe Gehwgplatten abzugeben !",
+    "Jane : Möchte jemand Ableger von meinen Rosen haben ?"
+  ];
+/*
+  intro();
+  sleep(Duration(seconds: 2));
+  stdout.write('\x1B[2J\x1B[0;0H');
+*/
   while (isProgrammRunning) {
     header();
 
     stdout.write("\n");
-    print("Willkommen bei Zaunfunk, deinem Kleingarten Netzwerk!");
-    stdout.write("\n");
+    print("    Zaunfunk dein Kleingarten Netzwerk !");
+    stdout.write("\n\n");
     if (userName != "Sascha" && userPassword != "baum123") {
       print("Du hast die Auswahl zwischen :");
       print("(einloggen für mehr Auswahl)");
@@ -55,19 +66,18 @@ void main() {
           print("Nutzername oder Passwort falsch !");
         }
 
-      case "f" || "F": // evtl vorhandene Feeds noch erstellen
+      case "f" || "F":
         stdout.write("\n\n");
-        stdout.write("   -------------------------\n\n");
-        print("   $userArticle \n");
-        stdout.write("   -------------------------\n\n");
+        showFeed(feed);
 
       case "e" || "E":
         stdout.write("\n");
         print("Beitrag verfassen und mit 'Enter' bestätigen !");
         stdout.write("Beitrag erstellen : ");
         userArticle = stdin.readLineSync()!;
+        feed.add("$userName : " + "$userArticle");
         stdout.write("\n\n");
-        print("$userArticle \n\n");
+        showFeed(feed);
       case "o" || "O":
         userName = "";
         userPassword = "";
