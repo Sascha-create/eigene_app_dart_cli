@@ -18,4 +18,7 @@ void header() {
   stdout.write("\n");
   stdout.write("/____\\__,_|\\__,_|_| |_|_|  \\__,_|_| |_|_|\\_\\");
   stdout.write("\n");
+  stdout.write("\n");
+  print("    Zaunfunk dein Kleingarten Netzwerk !");
+  stdout.write("\n");
 }
