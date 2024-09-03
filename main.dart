@@ -46,8 +46,6 @@ void main() {
     stdout.write("Eingabe : ");
     userInput = stdin.readLineSync()!;
 
-    // Registrieren einfügen
-
     switch (userInput) {
       case "b" || "B":
         stdout.write('\x1B[2J\x1B[0;0H');
@@ -64,7 +62,7 @@ void main() {
         userPassword = stdin.readLineSync()!;
         if (userName == "Sascha" && userPassword == "baum123") {
           stdout.write('\x1B[2J\x1B[0;0H');
-          loading();
+          loadingLogin();
         } else {
           stdout.write('\x1B[2J\x1B[0;0H');
           header();

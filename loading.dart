@@ -2,10 +2,10 @@ import 'dart:io';
 import 'header_zaunfunk.dart';
 
 void main() {
-  loading();
+  loadingLogin();
 }
 
-void loading() {
+void loadingLogin() {
   int times = 3;
   int length = 18;
   String load = "/";
@@ -24,3 +24,5 @@ void loading() {
     }
   }
 }
+
+
