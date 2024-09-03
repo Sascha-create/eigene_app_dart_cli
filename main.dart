@@ -1,12 +1,13 @@
 import 'dart:io';
 import 'header_zaunfunk.dart';
+import 'loading.dart';
 import 'show_feed.dart';
 import 'intro.dart';
 
 void main() {
   bool isProgrammRunning = true;
   String userInput = "";
-  String userArticle = " kein Beitrag verfasst !";
+  String userArticle = "";
   String userName = "";
   String userPassword = "";
 
@@ -23,9 +24,6 @@ void main() {
   while (isProgrammRunning) {
     header();
 
-    /*stdout.write("\n");
-    print("    Zaunfunk dein Kleingarten Netzwerk !"); //dem header hinzufügen
-    stdout.write("\n\n");*/
     if (userName != "Sascha" && userPassword != "baum123") {
       print("Du hast die Auswahl zwischen :");
       print("(einloggen für mehr Auswahl)");
@@ -48,11 +46,13 @@ void main() {
     stdout.write("Eingabe : ");
     userInput = stdin.readLineSync()!;
 
+    // Registrieren einfügen
+
     switch (userInput) {
       case "b" || "B":
         stdout.write('\x1B[2J\x1B[0;0H');
         isProgrammRunning = false;
-      case "l" || "L": // header mit neuem text einfügen
+      case "l" || "L":
         stdout.write('\x1B[2J\x1B[0;0H');
         header();
         stdout.write("\n");
@@ -64,15 +64,12 @@ void main() {
         userPassword = stdin.readLineSync()!;
         if (userName == "Sascha" && userPassword == "baum123") {
           stdout.write('\x1B[2J\x1B[0;0H');
+          loading();
+        } else {
+          stdout.write('\x1B[2J\x1B[0;0H');
           header();
           print("");
-          print("Du bist angemeldet !"); // header ?
-          sleep(Duration(seconds: 2));
-          stdout.write('\x1B[2J\x1B[0;0H');
-        } else {
-          print("");
-          print(
-              "Nutzername oder Passwort falsch !"); // gleiche wie bei angemeldet einfügen
+          print("Nutzername oder Passwort falsch !");
         }
 
       case "f" || "F":
@@ -85,8 +82,7 @@ void main() {
         stdout.write('\x1B[2J\x1B[0;0H');
         header();
         stdout.write("\n");
-        print(
-            "Beitrag verfassen und mit 'Enter' bestätigen !"); // header einfügen?
+        print("Beitrag verfassen und mit 'Enter' bestätigen !");
         stdout.write("Beitrag erstellen : ");
         userArticle = stdin.readLineSync()!;
         feed.add("$userName : " + "$userArticle");
@@ -97,6 +93,11 @@ void main() {
       case "o" || "O":
         userName = "";
         userPassword = "";
+        stdout.write('\x1B[2J\x1B[0;0H');
+        header();
+        stdout.write("\n");
+        stdout.write("Besuche uns bald wieder !");
+        sleep(Duration(seconds: 2));
         stdout.write('\x1B[2J\x1B[0;0H');
     }
   }
