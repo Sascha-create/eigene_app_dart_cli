@@ -16,4 +16,4 @@ kann und Infos vom Verein bekommt. Kurz "Zaunfunk".
 
 ## Logindaten
 
-Für Login den Benutzername: <Sascha> und das Passwort: <baum123> benutzen!
+Für Login die Zugangsdaten aus `login.dart` entnehmen !
