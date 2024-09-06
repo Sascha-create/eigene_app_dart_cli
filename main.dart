@@ -1,15 +1,16 @@
 import 'dart:io';
 import 'header_zaunfunk.dart';
-import 'loading.dart';
+import 'login.dart';
 import 'show_feed.dart';
 import 'intro.dart';
 
 void main() {
   bool isProgrammRunning = true;
+  bool isLoginInputCorrect = false;
   String userInput = "";
   String userArticle = "";
-  String userName = "";
-  String userPassword = "";
+  String userInputName = "";
+  String userInputPassword = "";
 
   List<String> feed = [
     "Otto : Ich habe Gehwgplatten abzugeben !",
@@ -24,7 +25,7 @@ void main() {
   while (isProgrammRunning) {
     header();
 
-    if (userName != "Sascha" && userPassword != "baum123") {
+    if (!isLoginInputCorrect) {
       print("Du hast die Auswahl zwischen :");
       print("(einloggen für mehr Auswahl)");
       stdout.write("\n");
@@ -34,7 +35,7 @@ void main() {
       stdout.write("\n");
       stdout.write("•L(o)gout   ");
     }
-    if (userName == "Sascha" && userPassword == "baum123") {
+    if (isLoginInputCorrect) {
       stdout.write("•(F)eed anzeigen   ");
       stdout.write("•Beitrag (e)rstellen   ");
     }
@@ -54,21 +55,14 @@ void main() {
         stdout.write('\x1B[2J\x1B[0;0H');
         header();
         stdout.write("\n");
+
         print(
             "Für Login den Nutzernamen und Passwort eingeben ! Mit 'Enter' bestätigen !");
         stdout.write("Nutzername : ");
-        userName = stdin.readLineSync()!;
+        userInputName = stdin.readLineSync()!;
         stdout.write("Passwort : ");
-        userPassword = stdin.readLineSync()!;
-        if (userName == "Sascha" && userPassword == "baum123") {
-          stdout.write('\x1B[2J\x1B[0;0H');
-          loadingLogin();
-        } else {
-          stdout.write('\x1B[2J\x1B[0;0H');
-          header();
-          print("");
-          print("Nutzername oder Passwort falsch !");
-        }
+        userInputPassword = stdin.readLineSync()!;
+        isLoginInputCorrect = isLoginCorrect(userInputName, userInputPassword);
 
       case "f" || "F":
         stdout.write('\x1B[2J\x1B[0;0H');
@@ -89,14 +83,13 @@ void main() {
         header();
         showFeed(feed);
       case "o" || "O":
-        userName = "";
-        userPassword = "";
         stdout.write('\x1B[2J\x1B[0;0H');
         header();
         stdout.write("\n");
         stdout.write("Besuche uns bald wieder !");
         sleep(Duration(seconds: 2));
         stdout.write('\x1B[2J\x1B[0;0H');
+        isLoginInputCorrect = false;
     }
   }
 }
