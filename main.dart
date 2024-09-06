@@ -13,7 +13,7 @@ void main() {
   String userInputPassword = "";
 
   List<String> feed = [
-    "Otto : Ich habe Gehwgplatten abzugeben !",
+    "Otto : Ich habe Gehwegplatten abzugeben !",
     "Jane : Möchte jemand Ableger von meinen Rosen haben ?"
   ];
 
